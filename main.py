@@ -10,7 +10,7 @@ chrome_options = Options()
 chrome_options.add_argument('--ignore-certificate-errors')
 import time
 
-driver = webdriver.Chrome(r"D:\Programação\Selenium_Networkin\chromedriver\chromedriver.exe", options=chrome_options)
+driver = webdriver.Chrome(r".\chromedriver\chromedriver.exe", options=chrome_options)
 
 def main():
     # Navegar até o site de login
