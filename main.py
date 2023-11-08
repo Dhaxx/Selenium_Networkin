@@ -1,16 +1,11 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
+import time
 
 buscando = True
 
-chrome_options = Options()
-chrome_options.add_argument('--ignore-certificate-errors')
-import time
-
-driver = webdriver.Chrome(r".\chromedriver\chromedriver.exe", options=chrome_options)
+driver = webdriver.Edge(r"D:\Programação\Selenium_Networkin\edgedriver\msedgedriver.exe")
 
 def main():
     # Navegar até o site de login
@@ -45,7 +40,8 @@ def main():
             pessoa.click() 
             botao_adicionarNota = driver.find_element(By.XPATH, "//button[span[text()='Adicionar nota']]").click()
             nome = (driver.find_element(By.XPATH, "//h2[@id = 'send-invite-modal']").text).split()
-            mensagem = (f"""Olá {nome[1]}! Estou entrando em contato porque tenho um grande interesse em programação e estou sempre em busca de encontrar novas formas de criar comunicações impactantes. Gostaria de explorar possíveis colaborações e descobrir oportunidades empolgantes nesse campo. Seria ótimo conectar com você!""")
+            mensagem = (f"""Olá {nome[1]}! Estou entrando em contato porque tenho um grande interesse em programação e estou sempre em busca de encontrar novas formas de criar comunicações impactantes. 
+                            Gostaria de explorar possíveis colaborações e descobrir oportunidades empolgantes nesse campo. Seria ótimo conectar com você!""")
             text_area = (driver.find_element(By.XPATH,"//textarea[@name = 'message']"))
             text_area.send_keys(mensagem)
             btn_enviarNota = driver.find_element(By.XPATH,"//button[span[text() = 'Enviar']]").click()
